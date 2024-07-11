@@ -1,1 +1,75 @@
-<p>Formulario-Proveedor works!</p>,
+<h1 class="text-center mt-4">
+    @if(proveedor){
+    Editar Proveedor
+    }@else {
+    Nuevo Proveedor
+    }
+</h1>
+
+
+<div class="row row-cols-2 justify-content-center">
+    @if(form){
+    <form class="row g-2" [formGroup]="form" (ngSubmit)="save()">
+        <div class="col-md-6">
+            <label for="nombre" class="col-form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre">
+            <div *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched" class="text-danger">
+                Nombre inválido
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="apellido" class="col-form-label">Apellido</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" formControlName="apellido">
+            <div *ngIf="form.get('apellido')?.invalid && form.get('apellido')?.touched" class="text-danger">
+                Apellido inválido
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="direccion" class="col-form-label">Dirección</label>
+            <input type="text" class="form-control" id="direccion" name="direccion" formControlName="direccion">
+        </div>
+        <div class="col-md-6">
+            <label for="celular" class="col-form-label">Celular</label>
+            <input type="number" class="form-control" id="celular" name="celular" formControlName="celular">
+            <div *ngIf="form.get('celular')?.invalid && form.get('celular')?.touched" class="text-danger">
+                Celular inválido
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="col-form-label">Email</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="usuario@ejemplo.com"
+                formControlName="email">
+            <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-danger">
+                Email inválido
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="documento" class="col-form-label">Documento</label>
+            <select class="form-select" id="documento" name="documento" formControlName="documento">
+                <option value="" disabled>Seleccione un tipo de documento</option>
+                <option value="DNI">DNI</option>
+                <option value="CE">CE</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="documentoN" class="col-form-label">Número de Documento</label>
+            <input type="number" class="form-control" id="documentoN" name="documentoN" formControlName="documentoN">
+            <div *ngIf="form.get('documentoN')?.invalid && form.get('documentoN')?.touched" class="text-danger">
+                Número de documento inválido
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary my-3">
+            @if (proveedor){
+            Actualizar Proveedor
+            }@else {
+            Agregar Nuevo Proveedor
+            }
+
+
+        </button>
+        <button type="button" class="btn btn-secondary my-1" routerLink="/Proveedor">Cancelar</button>
+
+    </form>
+    }
+</div>
