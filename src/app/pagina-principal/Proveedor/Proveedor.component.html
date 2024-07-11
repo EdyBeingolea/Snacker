@@ -1,1 +1,61 @@
-<p>Proveedor works!</p>,
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center py-5">Proveedores</h1>
+        <div class="d-flex justify-content-end">
+            <input type="search" class="form-control" style="width: 200px;" id="buscador" placeholder="Buscar ...">
+
+            <!-- Button trigger modal -->
+            <button  class="btn btn-primary mx-4" routerLink="/new">Agregar</button>
+
+
+        </div>
+        <div class="d-flex p-4">
+            <!---- Iniciio de la tabla-->
+            <table class="table border">
+                <thead>
+                    <tr>
+                        <th >ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Direccion</th>
+                        <th>Celular</th>
+                        <th>Email</th>
+                        <th>Documento</th>
+                        <th>Numero de Documento</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (proveedor of proveedor; track proveedor.id) {
+                    <tr>
+                        <td >{{proveedor.id}}</td>
+                        <td>{{proveedor.nombre}}</td>
+                        <td>{{proveedor.apellido}}</td>
+                        <td>{{proveedor.direccion}}</td>
+                        <td>{{proveedor.celular}}</td>
+                        <td>{{proveedor.email}}</td>
+                        <td>{{proveedor.documento}}</td>
+                        <td>{{proveedor.documentoN}}</td>
+                        <td></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            <!---Fin de la tabla -->
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
